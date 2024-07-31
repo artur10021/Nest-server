@@ -16,9 +16,9 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @HttpCode(HttpStatus.OK)
-  @Post('login')
-  signIn(@Body() signInDto: Record<string, any>) {
-    return this.authService.signIn(signInDto.username, signInDto.password);
+  @Post('regist')
+  signIn(@Body() signInDto: Record<string, string>) {
+    return this.authService.regist(signInDto.login, signInDto.password);
   }
 
   @UseGuards(AuthGuard)
